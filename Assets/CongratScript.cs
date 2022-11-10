@@ -6,26 +6,26 @@ public class CongratScript : MonoBehaviour
 {
     public TextMesh Text;
     public ParticleSystem SparksParticles;
-    
+
     private List<string> TextToDisplay = new List<string>();
-    
+
     public float RotatingSpeed;
     private float TimeToNextText;
 
     private int CurrentText;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(MyCoroutine());
         TimeToNextText = 0.0f;
         CurrentText = 0;
-
+        Debug.Log(1f / 3f + 1f / 3f + 1f / 3f);
         TextToDisplay.Add("Congratulation");
         TextToDisplay.Add("All Errors Fixed");
 
         Text.text = TextToDisplay[0];
-        
+
         SparksParticles.Play();
     }
 
@@ -38,7 +38,7 @@ public class CongratScript : MonoBehaviour
         if (TimeToNextText > 1.5f)
         {
             TimeToNextText = 0.0f;
-            
+
             CurrentText++;
 
             if (CurrentText >= TextToDisplay.Count)
