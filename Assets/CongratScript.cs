@@ -20,7 +20,6 @@ public class CongratScript : MonoBehaviour
         StartCoroutine(MyCoroutine());
         TimeToNextText = 0.0f;
         CurrentText = 0;
-        Debug.Log(1f / 3f + 1f / 3f + 1f / 3f);
         TextToDisplay.Add("Congratulation");
         TextToDisplay.Add("All Errors Fixed");
 
