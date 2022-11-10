@@ -17,6 +17,7 @@ public class CongratScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(MyCoroutine());
         TimeToNextText = 0.0f;
         CurrentText = 0;
 
@@ -47,5 +48,12 @@ public class CongratScript : MonoBehaviour
 
             Text.text = TextToDisplay[CurrentText];
         }
+    }
+
+    private IEnumerator MyCoroutine()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Test");
+        StartCoroutine(MyCoroutine());
     }
 }
