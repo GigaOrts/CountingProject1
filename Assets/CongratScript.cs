@@ -9,7 +9,7 @@ public class CongratScript : MonoBehaviour
     
     private List<string> TextToDisplay = new List<string>();
     
-    private float RotatingSpeed;
+    public float RotatingSpeed;
     private float TimeToNextText;
 
     private int CurrentText;
@@ -19,8 +19,6 @@ public class CongratScript : MonoBehaviour
     {
         TimeToNextText = 0.0f;
         CurrentText = 0;
-        
-        RotatingSpeed = 1.0f;
 
         TextToDisplay.Add("Congratulation");
         TextToDisplay.Add("All Errors Fixed");
@@ -34,6 +32,7 @@ public class CongratScript : MonoBehaviour
     void Update()
     {
         TimeToNextText += Time.deltaTime;
+        GetComponentInChildren<ParticleSystem>().transform.Rotate(Vector3.forward * RotatingSpeed * Time.deltaTime);
 
         if (TimeToNextText > 1.5f)
         {
